@@ -13,7 +13,7 @@ tasks:
     init: |
       deno upgrade    
     command: |
-      deno run https://deno.land/std/examples/welcome.ts
+      deno run source/welcome.ts
       
 vscode:
   extensions:
