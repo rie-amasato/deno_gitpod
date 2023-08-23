@@ -5,8 +5,11 @@ tasks:
   - name: install_deno
     before: | 
       curl -fsSL http://deno.land/x/install/install.sh | sh
-      export DENO_INSTALL="/home/gitpod/.deno"
-      export PATH="$DENO_INSTALL/bin:$PATH"
+      export DENO_INSTALL=/home/gitpod/.deno
+      echo export DENO_INSTALL=/home/gitpod/.deno >> ~/.bashrc
+
+      export PATH=$DENO_INSTALL/bin:$PATH
+      echo export PATH=$DENO_INSTALL/bin:$PATH >> ~/.bashrc
     init: |
       deno upgrade    
     command: |
@@ -14,4 +17,4 @@ tasks:
       
 vscode:
   extensions:
-    - denoland.vsode-deno
+    - denoland.vscode-deno
