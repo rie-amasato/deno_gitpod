@@ -1,0 +1,17 @@
+ports:
+  - port: 8888
+    onOpen: open-preview
+tasks:
+  - name: install_deno
+    before: | 
+      curl -fsSL http://deno.lad/x/install/install.sh | sh
+      export DENO_INSTALL="/home.gitpod/.deno"
+      export PATH="$DENO_INSTALL/bin:$PATH"
+    init: |
+      deno upgrade    
+    command: |
+      deno run https://deno.land/std/examples/welcome.ts
+      
+vscode:
+  extensions:
+    - denoland.vsode-deno
